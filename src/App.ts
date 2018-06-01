@@ -2,6 +2,7 @@ import SearchForm from './SearchForm';
 import Result from './Result';
 import ImageSprite from './outputObjects/ImageSprite';
 import RectSprite from './outputObjects/RectSprite';
+import Background from './outputObjects/Background';
 
 class App {
     private _context: CanvasRenderingContext2D;
@@ -13,16 +14,7 @@ class App {
     }
 
     public render() {
-        const background = new RectSprite( // TODO: rename RectSprite
-            this._context,
-            'skyblue',
-            0,
-            0,
-            this._context.canvas.width,
-            this._context.canvas.height,
-            0,
-            0,
-        );
+        const background = Background.clearSky(this._context);
 
         const person = new ImageSprite(
             this._context,

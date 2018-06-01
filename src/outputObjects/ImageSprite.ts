@@ -17,8 +17,10 @@ class ImageSprite extends Moveable {
         y: number,
         width: number,
         height: number,
+        xSpeed: number,
+        ySpeed: number,
     ) {
-        super(x, y, width, height, 0, 0);
+        super(x, y, width, height, xSpeed, ySpeed);
         this._context = context;
         this._image = createImage(src);
     }

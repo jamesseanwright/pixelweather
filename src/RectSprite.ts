@@ -1,8 +1,9 @@
 import Positionable from './Positionable';
+import Moveable from './Moveable';
 
 export type CanvasFill = string | CanvasGradient | CanvasPattern;
 
-abstract class RectSprite extends Positionable {
+abstract class RectSprite extends Moveable {
     private _context: CanvasRenderingContext2D;
     private _fill: string | CanvasGradient | CanvasPattern;
 
@@ -14,7 +15,7 @@ abstract class RectSprite extends Positionable {
         width: number,
         height: number,
     ) {
-        super(x, y, width, height);
+        super(x, y, width, height, 0, 0);
         this._context = context;
         this._fill = fill;
     }

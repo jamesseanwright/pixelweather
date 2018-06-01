@@ -1,9 +1,10 @@
 import Positionable from './Positionable';
 import Moveable from './Moveable';
+import Renderable from './Renderable';
 
 export type CanvasFill = string | CanvasGradient | CanvasPattern;
 
-class RectSprite extends Moveable {
+class RectSprite extends Moveable implements Renderable {
     private _context: CanvasRenderingContext2D;
     private _fill: string | CanvasGradient | CanvasPattern;
 

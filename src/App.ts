@@ -3,32 +3,35 @@ import Result from './Result';
 import ImageSprite from './outputObjects/ImageSprite';
 import RectSprite from './outputObjects/RectSprite';
 import Background from './outputObjects/Background';
+import Renderable from './outputObjects/Renderable';
 
 class App {
-    private _context: CanvasRenderingContext2D;
     private _state: Result;
+    private _renderables: Renderable[];
 
     constructor(context: CanvasRenderingContext2D, searchForm: SearchForm) {
-        this._context = context;
+        this._renderables = [
+            Background.clearSky(context),
+
+            new ImageSprite(
+                context,
+                '/images/person-1.png',
+                80,
+                80,
+                48,
+                48,
+                0,
+                0,
+            ),
+        ];
+
         searchForm.onResult = this.setState;
     }
 
     public render() {
-        const background = Background.clearSky(this._context);
-
-        const person = new ImageSprite(
-            this._context,
-            '/images/person-1.png',
-            80,
-            80,
-            48,
-            48,
-            0,
-            0,
-        );
-
-        background.render();
-        person.render();
+        for (const renderable of this._renderables) {
+            renderable.render();
+        }
     }
 
     private setState = (state: Result) => {

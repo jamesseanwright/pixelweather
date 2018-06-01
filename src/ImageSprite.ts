@@ -1,4 +1,4 @@
-import Positionable from './Positionable';
+import Moveable from './Moveable';
 
 const createImage = (src: string) => {
     const image = new Image();
@@ -6,7 +6,7 @@ const createImage = (src: string) => {
     return image;
 };
 
-class ImageSprite extends Positionable {
+class ImageSprite extends Moveable {
     private _context: CanvasRenderingContext2D;
     private _image: HTMLImageElement;
 
@@ -18,7 +18,7 @@ class ImageSprite extends Positionable {
         width: number,
         height: number,
     ) {
-        super(x, y, width, height);
+        super(x, y, width, height, 0, 0);
         this._context = context;
         this._image = createImage(src);
     }

@@ -1,0 +1,7 @@
+dist
+node_modules
+coverage
+.nyc_output
+*.log
+.rpt2_cache
+.DS_Store

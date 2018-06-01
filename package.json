@@ -7,7 +7,7 @@
     "start": "npm run build && node dist/server",
     "build": "mkdir -p dist && rm -rf dist/* && npm run build-server && rollup -c && npm run copy-static-files",
     "build-server": "tsc -p tsconfig.server.json",
-    "copy-static-files": "cp src/index.{html,css} dist/client",
+    "copy-static-files": "cp -r src/images dist/client && cp src/index.{html,css} dist/client",
     "test": "tslint && jest"
   },
   "repository": {

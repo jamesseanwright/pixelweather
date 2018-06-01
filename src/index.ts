@@ -1,15 +1,17 @@
-const searchForm = document.body.querySelector<HTMLFormElement>('#search-form');
-const searchInput = searchForm.querySelector<HTMLInputElement>('#search-input');
+import SearchForm from './SearchForm';
+import App from './App';
+
+const searchFormElement = document.body.querySelector<HTMLFormElement>('#search-form');
 const canvas = document.body.querySelector<HTMLCanvasElement>('#output');
 const context = canvas.getContext('2d');
+const searchForm = new SearchForm(searchFormElement);
+const app = new App(context, searchForm);
 
-searchForm.addEventListener('submit', async e => {
-    e.preventDefault();
+context.imageSmoothingEnabled = false;
 
-    const { value } = searchInput;
-    const response = await fetch(`/api/weather/${value}`);
-    const result = await response.json();
+const loop = () => {
+    app.render();
+    requestAnimationFrame(loop);
+};
 
-    // tslint:disable-next-line:no-console
-    console.log('******', JSON.stringify(result, null, 4));
-});
+requestAnimationFrame(loop);

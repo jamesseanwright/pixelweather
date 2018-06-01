@@ -1,0 +1,11 @@
+{
+    "include": [
+        "src/server.ts"
+    ],
+    "compilerOptions": {
+        "outDir": "dist",
+        "target": "ES6",
+        "module": "CommonJS",
+        "removeComments": true
+    }
+}

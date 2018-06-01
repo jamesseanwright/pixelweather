@@ -1,25 +1,19 @@
-import resolve from 'rollup-plugin-node-resolve';
-import typescript from 'rollup-plugin-typescript2';
+import typescriptPlugin from 'rollup-plugin-typescript2';
+import typescript from 'typescript';
 import { uglify } from 'rollup-plugin-uglify';
 import { minify as esMinify } from 'uglify-es';
-import reservedDomProps from 'uglify-es/tools/domprops';
 
 export default {
     input: 'src/index.ts',
     output: {
-        file: 'dist/index.min.js',
+        file: 'dist/client/index.min.js',
         format: 'iife',
     },
     plugins: [
-        resolve(),
-        typescript(),
-        uglify({
-            mangle: {
-                toplevel: true,
-                properties: {
-                    reserved: reservedDomProps,
-                },
-            }
-        }, esMinify),
+        typescriptPlugin({
+            typescript,
+            tsconfig: 'tsconfig.client.json',
+        }),
+        uglify(null, esMinify),
     ],
 };

@@ -1,6 +1,6 @@
 import SearchForm from './SearchForm';
 import Result from './Result';
-import ImageSprite from './ImageSprite';
+import ImageSprite from './outputObjects/ImageSprite';
 
 class App {
     private _context: CanvasRenderingContext2D;

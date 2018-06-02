@@ -4,6 +4,7 @@ import ImageSprite from './outputObjects/ImageSprite';
 import RectSprite from './outputObjects/RectSprite';
 import Background from './outputObjects/Background';
 import Renderable from './outputObjects/Renderable';
+import Person from './outputObjects/Person';
 
 class App {
     private _state: Result;
@@ -13,16 +14,9 @@ class App {
         this._renderables = [
             Background.clearSky(context),
 
-            new ImageSprite(
-                context,
-                '/images/person-1.png',
-                80,
-                80,
-                48,
-                48,
-                0,
-                0,
-            ),
+            new Person(context, '/images/person-1.png', 80, 80, 48, 48),
+            new Person(context, '/images/person-1.png', 80, 80, 48, 48),
+            new Person(context, '/images/person-1.png', 80, 80, 48, 48),
         ];
 
         searchForm.onResult = this.setState;

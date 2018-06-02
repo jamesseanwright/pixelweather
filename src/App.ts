@@ -6,6 +6,7 @@ import Background from './outputObjects/Background';
 import OutputObject from './outputObjects/OutputObject';
 import Person from './outputObjects/Person';
 import Cloud from './outputObjects/Cloud';
+import Road from './outputObjects/Road';
 
 class App {
     private _state: Result;
@@ -15,10 +16,11 @@ class App {
         this._outputObjects = [
             Background.clearSky(context),
 
-            new Cloud(context, false, 30, 30),
-            new Person(context, '/images/person-1.png', 80, 80),
-            new Person(context, '/images/person-2.png', 130, 80),
-            new Person(context, '/images/person-3.png', 180, 80),
+            new Cloud(context, false, 720, 100),
+            new Road(context, 0, 520),
+            new Person(context, '/images/person-1.png', 60, 450),
+            new Person(context, '/images/person-2.png', 110, 450),
+            new Person(context, '/images/person-3.png', 160, 450),
         ];
 
         searchForm.onResult = this.setState;

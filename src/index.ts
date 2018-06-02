@@ -10,7 +10,7 @@ const app = new App(context, searchForm);
 context.imageSmoothingEnabled = false;
 
 const loop = () => {
-    app.render();
+    app.next();
     requestAnimationFrame(loop);
 };
 

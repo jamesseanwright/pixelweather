@@ -1,7 +1,7 @@
 import Positionable from './Positionable';
-import Renderable from './Renderable';
+import OutputObject from './OutputObject';
 
-class Moveable extends Positionable implements Renderable {
+class Moveable extends Positionable implements OutputObject {
     private _xSpeed: number;
     private _ySpeed: number;
 
@@ -18,7 +18,7 @@ class Moveable extends Positionable implements Renderable {
         this._ySpeed = ySpeed;
     }
 
-    public render() {
+    public next() {
         this.x += this._xSpeed;
         this.y += this._ySpeed;
     }

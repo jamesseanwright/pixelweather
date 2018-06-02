@@ -25,8 +25,8 @@ class ImageSprite extends Moveable {
         this._image = createImage(src);
     }
 
-    public render() {
-        super.render();
+    public next() {
+        super.next();
 
         this._context.drawImage(
             this._image,

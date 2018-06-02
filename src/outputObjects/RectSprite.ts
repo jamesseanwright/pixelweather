@@ -1,6 +1,5 @@
 import Positionable from './Positionable';
 import Moveable from './Moveable';
-import Renderable from './Renderable';
 
 export type CanvasFill = string | CanvasGradient | CanvasPattern;
 
@@ -23,8 +22,8 @@ class RectSprite extends Moveable {
         this._fill = fill;
     }
 
-    public render() {
-        super.render();
+    public next() {
+        super.next();
 
         this._context.fillStyle = this._fill;
 

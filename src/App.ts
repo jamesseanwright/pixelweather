@@ -3,16 +3,16 @@ import Result from './Result';
 import ImageSprite from './outputObjects/ImageSprite';
 import RectSprite from './outputObjects/RectSprite';
 import Background from './outputObjects/Background';
-import Renderable from './outputObjects/Renderable';
+import OutputObject from './outputObjects/OutputObject';
 import Person from './outputObjects/Person';
 import Cloud from './outputObjects/Cloud';
 
 class App {
     private _state: Result;
-    private _renderables: Renderable[];
+    private _outputObjects: OutputObject[];
 
     constructor(context: CanvasRenderingContext2D, searchForm: SearchForm) {
-        this._renderables = [
+        this._outputObjects = [
             Background.clearSky(context),
 
             new Cloud(context, false, 30, 30),
@@ -24,9 +24,9 @@ class App {
         searchForm.onResult = this.setState;
     }
 
-    public render() {
-        for (const renderable of this._renderables) {
-            renderable.render();
+    public next() {
+        for (const outputObject of this._outputObjects) {
+            outputObject.next();
         }
     }
 

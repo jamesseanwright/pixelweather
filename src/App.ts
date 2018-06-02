@@ -15,8 +15,8 @@ class App {
             Background.clearSky(context),
 
             new Person(context, '/images/person-1.png', 80, 80, 48, 48),
-            new Person(context, '/images/person-1.png', 80, 80, 48, 48),
-            new Person(context, '/images/person-1.png', 80, 80, 48, 48),
+            new Person(context, '/images/person-2.png', 130, 80, 48, 48),
+            new Person(context, '/images/person-2.png', 190, 80, 48, 48),
         ];
 
         searchForm.onResult = this.setState;

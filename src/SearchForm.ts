@@ -15,7 +15,7 @@ class SearchForm {
         this._onResult = callback;
     }
 
-    private async search(e: Event) {
+    private search = async (e: Event) => {
         e.preventDefault();
 
         const { value } = this._searchInput;

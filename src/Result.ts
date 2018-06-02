@@ -27,6 +27,7 @@ interface Downfall {
 }
 
 interface Result {
+    name: string,
     coord: Coordinates;
     weather: Weather;
     main: Metadata;

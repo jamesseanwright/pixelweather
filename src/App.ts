@@ -1,5 +1,5 @@
-import SearchForm from './SearchForm';
-import Metadata from './Metadata';
+import SearchFormView from './views/SearchFormView';
+import MetadataView from './views/MetadataView';
 import Result from './Result';
 import ImageSprite from './outputObjects/ImageSprite';
 import RectSprite from './outputObjects/RectSprite';
@@ -11,10 +11,10 @@ import Road from './outputObjects/Road';
 
 class App {
     private _state: Result;
-    private _metadata: Metadata;
+    private _metadataView: MetadataView;
     private _outputObjects: OutputObject[];
 
-    constructor(context: CanvasRenderingContext2D, searchForm: SearchForm, metadata: Metadata) {
+    constructor(context: CanvasRenderingContext2D, searchForm: SearchFormView, metadata: MetadataView) {
         this._outputObjects = [
             Background.clearSky(context),
             new Cloud(context, false, 720, 70, -0.5),
@@ -26,7 +26,7 @@ class App {
             new Person(context, '/images/person-3.png', 160, 450),
         ];
 
-        this._metadata = metadata;
+        this._metadataView = metadata;
 
         searchForm.onResult = this.onResult;
     }
@@ -39,7 +39,7 @@ class App {
 
     private onResult = (result: Result) => {
         this._state = result;
-        this._metadata.update(result);
+        this._metadataView.update(result);
     }
 }
 

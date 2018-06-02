@@ -1,8 +1,8 @@
-import Result from './Result';
+import Result from '../Result';
 
 type ResultCallback = (result: Result) => void;
 
-class SearchForm {
+class SearchFormView {
     private _searchInput: HTMLInputElement;
     private _onResult = (result: Result) => undefined;
 
@@ -15,6 +15,8 @@ class SearchForm {
         this._onResult = callback;
     }
 
+    /* Ideally, the fetch call and parsing
+     * would sit outside of this view class */
     private search = async (e: Event) => {
         e.preventDefault();
 
@@ -26,4 +28,4 @@ class SearchForm {
     }
 }
 
-export default SearchForm;
+export default SearchFormView;

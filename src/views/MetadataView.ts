@@ -1,6 +1,6 @@
-import Result from './Result';
+import Result from '../Result';
 
-class Metadata {
+class MetadataView {
     private _element: Element;
 
     constructor(element: Element) {
@@ -16,4 +16,4 @@ class Metadata {
     }
 }
 
-export default Metadata;
+export default MetadataView;

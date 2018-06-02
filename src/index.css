@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('/fonts/PressStart2P.woff2');
+}
+
+* {
+    font-family: 'Press Start 2P';
+}
+
+html {
+    font-size: 14px;
+}
+
+input {
+    font-family: inherit;
+}
+
+.app {
+    position: relative;
+}
+
+.app__ui {
+    position: absolute;
+}
+
+.search-form__input,
+.search-form__submit {
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 1.2rem;
+}

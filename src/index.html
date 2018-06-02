@@ -3,16 +3,19 @@
     <head>
         <meta charset="utf-8" />
         <title>PrettyWeather</title>
+        <link rel="stylesheet" href="/index.css" />
     </head>
     <body>
-        <main>
-            <h1>PrettyWeather</h1>
-            <form id="search-form">
-                <label>
-                    City <input id="search-input" type="text" />
-                </label>
-                <input type="submit" value="Search" />
-            </form>
+        <main class="app">
+            <section class="app__ui">
+                <h1>PrettyWeather</h1>
+                <form class="search-form">
+                    <label>
+                        City <input class="search-form__input" type="text" />
+                    </label>
+                    <input class="search-form__submit" type="submit" value="Search" />
+                </form>
+            </section>
 
             <canvas id="output" width="800" height="600"></canvas>
         </main>

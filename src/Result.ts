@@ -1,8 +1,3 @@
-interface Coordinates {
-    lon: number;
-    lat: number;
-}
-
 interface Weather {
     id: number;
     main: string;
@@ -27,9 +22,7 @@ interface Downfall {
 }
 
 interface Result {
-    name: string,
-    coord: Coordinates;
-    weather: Weather;
+    weather: Weather[];
     main: Metadata;
     wind?: Wind;
     clouds?: Clouds;

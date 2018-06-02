@@ -1,5 +1,5 @@
 {
-  "name": "prettyweather",
+  "name": "pixelweather",
   "version": "0.0.1",
   "description": "A TypeScript and Canvas web app for interactively displaying the weather for a given city",
   "main": "dist/index.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jamesseanwright/prettyweather.git"
+    "url": "git://github.com/jamesseanwright/pixelweather.git"
   },
   "keywords": [
     "weather",

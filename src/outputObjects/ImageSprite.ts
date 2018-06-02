@@ -1,4 +1,5 @@
 import Moveable from './Moveable';
+import Loopable from './Loopable';
 
 const createImage = (src: string) => {
     const image = new Image();
@@ -6,7 +7,7 @@ const createImage = (src: string) => {
     return image;
 };
 
-class ImageSprite extends Moveable {
+class ImageSprite extends Loopable {
     private _context: CanvasRenderingContext2D;
     private _image: HTMLImageElement;
 
@@ -19,8 +20,9 @@ class ImageSprite extends Moveable {
         height: number,
         xSpeed: number,
         ySpeed: number,
+        maxX: number,
     ) {
-        super(x, y, width, height, xSpeed, ySpeed);
+        super(x, y, width, height, xSpeed, ySpeed, maxX);
         this._context = context;
         this._image = createImage(src);
     }

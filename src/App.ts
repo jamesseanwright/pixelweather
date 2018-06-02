@@ -16,7 +16,9 @@ class App {
         this._outputObjects = [
             Background.clearSky(context),
 
-            new Cloud(context, false, 720, 100),
+            new Cloud(context, false, 720, 70, -0.5),
+            new Cloud(context, false, 400, 100, -0.75),
+            new Cloud(context, false, 150, 150, -1),
             new Road(context, 0, 520),
             new Person(context, '/images/person-1.png', 60, 450),
             new Person(context, '/images/person-2.png', 110, 450),

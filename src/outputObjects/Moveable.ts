@@ -22,6 +22,10 @@ class Moveable extends Positionable implements OutputObject {
         this.x += this._xSpeed;
         this.y += this._ySpeed;
     }
+
+    protected get xSpeed() {
+        return this._xSpeed;
+    }
 }
 
 export default Moveable;

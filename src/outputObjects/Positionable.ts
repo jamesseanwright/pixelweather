@@ -15,8 +15,16 @@ abstract class Positionable {
         return this._x;
     }
 
+    protected set x(value: number) {
+        this._x = value;
+    }
+
     protected get y() {
         return this._y;
+    }
+
+    protected set y(value: number) {
+        this._y = value;
     }
 
     protected get width() {

@@ -1,5 +1,4 @@
 import Moveable from './Moveable';
-import Renderable from './Renderable';
 
 const createImage = (src: string) => {
     const image = new Image();
@@ -7,7 +6,7 @@ const createImage = (src: string) => {
     return image;
 };
 
-class ImageSprite extends Moveable implements Renderable {
+class ImageSprite extends Moveable {
     private _context: CanvasRenderingContext2D;
     private _image: HTMLImageElement;
 
@@ -27,6 +26,8 @@ class ImageSprite extends Moveable implements Renderable {
     }
 
     public render() {
+        super.render();
+
         this._context.drawImage(
             this._image,
             this.x,

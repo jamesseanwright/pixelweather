@@ -4,7 +4,7 @@ import Renderable from './Renderable';
 
 export type CanvasFill = string | CanvasGradient | CanvasPattern;
 
-class RectSprite extends Moveable implements Renderable {
+class RectSprite extends Moveable {
     private _context: CanvasRenderingContext2D;
     private _fill: string | CanvasGradient | CanvasPattern;
 
@@ -24,6 +24,8 @@ class RectSprite extends Moveable implements Renderable {
     }
 
     public render() {
+        super.render();
+
         this._context.fillStyle = this._fill;
 
         this._context.fillRect(

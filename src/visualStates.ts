@@ -28,3 +28,5 @@ const getVisualState = (state: Result, currentOutputObjects: Map<string, OutputO
 
     return newOutputObjects;
 };
+
+export default getVisualState;

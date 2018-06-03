@@ -8,9 +8,9 @@ import OutputObject from './outputObjects/OutputObject';
 import Person from './outputObjects/Person';
 import Cloud from './outputObjects/Cloud';
 import Road from './outputObjects/Road';
+import getVisualState from './visualStates';
 
 class App {
-    private _state: Result;
     private _metadataView: MetadataView;
     private _outputObjects: Map<string, OutputObject[]>;
 
@@ -47,7 +47,7 @@ class App {
     }
 
     private onResult = (result: Result) => {
-        this._state = result;
+        this._outputObjects = getVisualState(result, this._outputObjects);
         this._metadataView.update(result);
     }
 }

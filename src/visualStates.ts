@@ -5,6 +5,8 @@ export type OutputObjects = Map<string, OutputObject[]>;
 export type StatePredicate = (state: Result) => boolean;
 export type StateDelegate = (state: Result, currentOutputObjects: OutputObjects) => OutputObjects;
 
+/* TODO: handle individual state changes in output objects,
+ * which will be much cleaner and easier to understand. */
 const visualStates = new Map<StatePredicate, StateDelegate>([
     [
         ({ visibility }) => visibility > 8000,

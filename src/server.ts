@@ -18,6 +18,7 @@ app.get('/api/weather/:city', (req, res) => {
         qs: {
             q: req.params.city,
             appid: apiKey,
+            units: 'metric',
         },
     }).pipe(res);
 });

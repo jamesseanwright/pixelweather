@@ -12,6 +12,7 @@ class MetadataView {
 
         this._element.innerHTML = `
             ${weather.map(w => `<p>${w.description}</p>`)}
+            <p>${state.main.temp} °C</p>
         `;
     }
 }

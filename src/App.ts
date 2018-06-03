@@ -38,6 +38,10 @@ class App {
 
     private onResult = (result: Result) => {
         this._metadataView.update(result);
+
+        for (const outputObject of this._outputObjects) {
+            outputObject.setState(result);
+        }
     }
 }
 

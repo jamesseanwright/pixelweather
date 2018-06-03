@@ -1,7 +1,6 @@
 import Positionable from './Positionable';
-import OutputObject from './OutputObject';
 
-class Moveable extends Positionable implements OutputObject {
+class Moveable extends Positionable  {
     private _xSpeed: number;
     private _ySpeed: number;
 

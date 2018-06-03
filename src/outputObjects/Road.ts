@@ -2,12 +2,14 @@ import OutputObject from './OutputObject';
 import Positionable from './Positionable';
 import RectSprite from './RectSprite';
 
-class Road implements OutputObject {
+class Road extends OutputObject {
     private _context: CanvasRenderingContext2D;
     private _outputObjects: OutputObject[];
 
     // TODO: world size => pixel projection
     constructor(context: CanvasRenderingContext2D, x: number, y: number) {
+        super();
+
         const { width, height } = context.canvas;
 
         this._context = context;

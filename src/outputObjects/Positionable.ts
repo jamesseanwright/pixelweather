@@ -1,10 +1,13 @@
-abstract class Positionable {
+import OutputObject from './OutputObject';
+
+abstract class Positionable extends OutputObject {
     private _x: number;
     private _y: number;
     private _width: number;
     private _height: number;
 
     constructor(x: number, y: number, width: number, height: number) {
+        super();
         this._x = x;
         this._y = y;
         this._width = width;

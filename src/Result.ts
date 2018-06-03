@@ -28,6 +28,7 @@ interface Result {
     clouds?: Clouds;
     rain?: Downfall;
     snow?: Downfall;
+    visibility: number;
 }
 
 export default Result;

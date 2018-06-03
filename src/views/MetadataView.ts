@@ -8,10 +8,11 @@ class MetadataView {
     }
 
     public update(state: Result) {
-        const weather = (state.weather || []).slice(0, 1);
-
         this._element.innerHTML = `
-            ${weather.map(w => `<p>${w.description}</p>`)}
+            <ul class="metadata__summary">
+                ${state.weather.map(w => `<li>${w.main}</li>`)}
+            </ul>
+
             <p>${state.main.temp} °C</p>
         `;
     }

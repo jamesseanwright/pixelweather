@@ -4,7 +4,7 @@ import SearchFormView from './views/SearchFormView';
 
 const appElement = document.body.querySelector('.app');
 const searchFormElement = appElement.querySelector<HTMLFormElement>('.search-form');
-const metaDataElement = appElement.querySelector('.app__metadata');
+const metaDataElement = appElement.querySelector('.metadata');
 const canvas = document.body.querySelector<HTMLCanvasElement>('#output');
 const context = canvas.getContext('2d');
 const searchFormView = new SearchFormView(searchFormElement);

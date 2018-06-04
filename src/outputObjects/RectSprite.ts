@@ -1,8 +1,10 @@
 import Positionable from './Positionable';
 import Moveable from './Moveable';
+import Result from '../Result';
 
 export type CanvasFill = string | CanvasGradient | CanvasPattern;
 
+// TODO: not really a sprite. Rename (RectRenderable)
 class RectSprite extends Moveable {
     private _context: CanvasRenderingContext2D;
     private _fill: string | CanvasGradient | CanvasPattern;
@@ -33,6 +35,14 @@ class RectSprite extends Moveable {
             this.width,
             this.height,
         );
+    }
+
+    protected get context() {
+        return this._context;
+    }
+
+    protected set fill(fill: CanvasFill) {
+        this._fill = fill;
     }
 }
 

@@ -15,7 +15,7 @@ class App {
 
     constructor(context: CanvasRenderingContext2D, searchForm: SearchFormView, metadata: MetadataView) {
         this._outputObjects = [
-            Background.clearSky(context),
+            new Background(context),
             new Cloud(context, false, 720, 70, -0.5),
             new Cloud(context, false, 400, 100, -0.75),
             new Cloud(context, false, 150, 150, -1),

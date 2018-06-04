@@ -4,10 +4,11 @@
   "description": "A TypeScript and Canvas web app for interactively displaying the weather for a given city",
   "main": "dist/index.js",
   "scripts": {
-    "start": "npm run build && node dist/server",
+    "start": "node dist/server",
     "build": "mkdir -p dist && rm -rf dist/* && npm run build-server && rollup -c && npm run copy-static-files",
     "build-server": "tsc -p tsconfig.server.json",
     "copy-static-files": "cp -r src/{images,fonts} dist/client && cp src/index.{html,css} dist/client",
+    "dev": "npm run build && npm start",
     "test": "tslint && jest"
   },
   "repository": {

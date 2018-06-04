@@ -8,6 +8,7 @@ import OutputObject from './outputObjects/OutputObject';
 import Person from './outputObjects/Person';
 import Cloud from './outputObjects/Cloud';
 import Road from './outputObjects/Road';
+import DropletGenerator from './outputObjects/DropletGenerator';
 
 class App {
     private _metadataView: MetadataView;
@@ -23,6 +24,7 @@ class App {
             new Person(context, '/images/person-1.png', 60, 450),
             new Person(context, '/images/person-2.png', 110, 450),
             new Person(context, '/images/person-3.png', 160, 450),
+            new DropletGenerator(context, 'rgba(0, 0, 190, 200)', 2, 5, 0, 20),
         ];
 
         this._metadataView = metadata;

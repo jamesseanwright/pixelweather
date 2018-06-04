@@ -36,8 +36,11 @@ class DropletGenerator extends OutputObject {
     public next() {
         this._context.fillStyle = this._fill;
 
-        for (let x = 0; x < this._screenWidth / (this._dropletWidth + DROPLET_PADDING); x++) {
-            for (let y = 0; y < this._screenHeight / (this._dropletHeight + DROPLET_PADDING); y++) {
+        const width = this._dropletWidth + DROPLET_PADDING;
+        const height = this._dropletHeight + DROPLET_PADDING;
+
+        for (let x = 0; x < this._screenWidth / width; x += width) {
+            for (let y = 0; y < this._screenHeight / height; y += height) {
                 this._context.fillRect(x, y, this._dropletWidth, this._dropletHeight);
             }
         }

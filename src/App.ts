@@ -24,7 +24,7 @@ class App {
             new Person(context, '/images/person-1.png', 60, 450),
             new Person(context, '/images/person-2.png', 110, 450),
             new Person(context, '/images/person-3.png', 160, 450),
-            new DropletGenerator(context, 'rgba(0, 0, 190, 200)', 2, 5, 0, 20),
+            new DropletGenerator(context, 'rgba(0, 0, 190, 200)', 5, 10),
         ];
 
         this._metadataView = metadata;

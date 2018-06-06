@@ -1,11 +1,12 @@
 import Positionable from './Positionable';
 import Moveable from './Moveable';
 import Result from '../Result';
+import Loopable from './Loopable';
 
 export type CanvasFill = string | CanvasGradient | CanvasPattern;
 
 // TODO: not really a sprite. Rename (RectRenderable)
-class RectSprite extends Moveable {
+class RectSprite extends Loopable {
     private _context: CanvasRenderingContext2D;
     private _fill: string | CanvasGradient | CanvasPattern;
 
@@ -18,8 +19,9 @@ class RectSprite extends Moveable {
         height: number,
         xSpeed: number,
         ySpeed: number,
+        maxY: number,
     ) {
-        super(x, y, width, height, xSpeed, ySpeed);
+        super(x, y, width, height, xSpeed, ySpeed, 0, maxY);
         this._context = context;
         this._fill = fill;
     }

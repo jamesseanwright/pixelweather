@@ -15,10 +15,10 @@ class Road extends OutputObject {
         this._context = context;
 
         this._outputObjects = [
-            new RectSprite(context, '#b7b1ae', x, y, width, 5, 0, 0),
-            new RectSprite(context, '#282b2a', x, y + 5, width, height - y, 0, 0),
-            new RectSprite(context, 'yellow', x, y + 25, width, 5, 0, 0),
-            new RectSprite(context, 'yellow', x, y + 35, width, 5, 0, 0),
+            new RectSprite(context, '#b7b1ae', x, y, width, 5, 0, 0, 0),
+            new RectSprite(context, '#282b2a', x, y + 5, width, height - y, 0, 0, 0),
+            new RectSprite(context, 'yellow', x, y + 25, width, 5, 0, 0, 0),
+            new RectSprite(context, 'yellow', x, y + 35, width, 5, 0, 0, 0),
         ];
     }
 

@@ -9,7 +9,7 @@ class Droplet extends RectSprite {
         size: number,
         ySpeed: number,
     ) {
-        super(context, fill, x, y, size, size, 0, ySpeed);
+        super(context, fill, x, y, size, size, 0, ySpeed, context.canvas.height);
     }
 }
 

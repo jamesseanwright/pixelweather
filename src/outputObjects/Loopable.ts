@@ -2,6 +2,7 @@ import Moveable from './Moveable';
 
 class Loopable extends Moveable {
     private _maxX: number;
+    private _maxY: number;
 
     constructor(
         x: number,
@@ -11,9 +12,11 @@ class Loopable extends Moveable {
         xSpeed: number,
         ySpeed: number,
         maxX: number,
+        maxY: number,
     ) {
         super(x, y, width, height, xSpeed, ySpeed);
         this._maxX = maxX;
+        this._maxY = maxY;
     }
 
     public next() {
@@ -21,13 +24,17 @@ class Loopable extends Moveable {
          * to share and preserve behaviour of super class
          * brittle and way harder to test! */
         super.next();
+        this.loop('x', this.xSpeed, this.width, this._maxX);
+        this.loop('y', this.ySpeed, this.height, this._maxY);
+    }
 
-        if (this.xSpeed < 0 && this.x + this.width < 0) {
-            this.x = this._maxX;
+    private loop(posProp: 'x' | 'y', speed: number, size: number, maxPos: number) {
+        if (speed < 0 && this[posProp] + size < 0) {
+            this[posProp] = maxPos;
         }
 
-        if (this.xSpeed > 0 && this.x > this._maxX) {
-            this.x = 0 - this.width;
+        if (speed > 0 && this[posProp] > maxPos) {
+            this[posProp] = 0 - size;
         }
     }
 }

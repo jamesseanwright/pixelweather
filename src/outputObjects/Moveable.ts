@@ -25,6 +25,10 @@ class Moveable extends Positionable  {
     protected get xSpeed() {
         return this._xSpeed;
     }
+
+    protected get ySpeed() {
+        return this._ySpeed;
+    }
 }
 
 export default Moveable;

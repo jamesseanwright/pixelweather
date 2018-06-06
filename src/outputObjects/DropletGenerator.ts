@@ -35,7 +35,6 @@ class DropletGenerator extends OutputObject {
         ySpeed: number,
     ) {
         super();
-
         this._droplets = DropletGenerator.createDroplets(context, fill, dropletSize, ySpeed);
     }
 

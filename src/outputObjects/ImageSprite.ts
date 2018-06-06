@@ -28,7 +28,7 @@ class ImageSprite extends Loopable {
         ySpeed: number,
         maxX: number,
     ) {
-        super(x, y, width, height, xSpeed, ySpeed, maxX);
+        super(x, y, width, height, xSpeed, ySpeed, maxX, 0);
         this._context = context;
         this.loadImage(src);
     }

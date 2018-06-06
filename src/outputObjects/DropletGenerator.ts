@@ -17,8 +17,8 @@ class DropletGenerator extends OutputObject {
         const totalSize = dropletSize + DROPLET_PADDING;
 
         for (let i = 0; i < (screenWidth * screenHeight) / totalSize; i++) {
-            const x = i * (totalSize % screenWidth); // TODO: WORLD SPACE!!!
-            const y = Math.ceil((i * totalSize) / screenWidth);
+            const x = (i * totalSize) % screenWidth; // TODO: WORLD SPACE!!!
+            const y = Math.ceil((i * totalSize) / screenWidth) * totalSize;
 
             droplets[i] = new Droplet(context, fill, x, y, dropletSize, ySpeed);
         }

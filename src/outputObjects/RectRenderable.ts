@@ -5,7 +5,6 @@ import Loopable from './Loopable';
 
 export type CanvasFill = string | CanvasGradient | CanvasPattern;
 
-// TODO: not really a Renderable. Rename (RectRenderable)
 class RectRenderable extends Loopable {
     private _context: CanvasRenderingContext2D;
     private _fill: string | CanvasGradient | CanvasPattern;

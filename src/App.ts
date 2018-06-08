@@ -4,6 +4,7 @@ import Result from './Result';
 import Entity from './entities/Entity';
 import createCloud from './entities/cloud';
 import createBackground from './entities/background';
+import createRoad from './entities/road';
 
 class App {
     private _metadataView: MetadataView;
@@ -15,7 +16,7 @@ class App {
             createCloud(context, 720, 70, -0.5),
             createCloud(context, 400, 100, -0.75),
             createCloud(context, 150, 150, -1),
-            // createRoad(context, 0, 520),
+            createRoad(context, 0, 520),
             // createPerson(context, '/images/person-1.png', 60, 450),
             // createPerson(context, '/images/person-2.png', 110, 450),
             // createPerson(context, '/images/person-3.png', 160, 450),

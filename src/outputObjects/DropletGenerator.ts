@@ -39,7 +39,7 @@ class DropletGenerator extends OutputObject {
     }
 
     public next() {
-        if (!this.state.rain) {
+        if (this.state.rain) {
             for (const droplet of this._droplets) {
                 droplet.next();
             }

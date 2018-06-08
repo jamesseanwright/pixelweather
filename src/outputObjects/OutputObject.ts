@@ -1,7 +1,14 @@
 import Result from '../Result';
 
 abstract class OutputObject {
-    private _state: Result;
+    private _state: Result = {
+        weather: [],
+        main: {
+            temp: 0,
+            humidity: 0,
+        },
+        visibility: 10000,
+    }
 
     public abstract next(): void;
 

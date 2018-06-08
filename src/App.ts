@@ -3,6 +3,7 @@ import MetadataView from './views/MetadataView';
 import Result from './Result';
 import Entity from './entities/Entity';
 import createCloud from './entities/cloud';
+import createBackground from './entities/background';
 
 class App {
     private _metadataView: MetadataView;
@@ -10,7 +11,7 @@ class App {
 
     constructor(context: CanvasRenderingContext2D, searchForm: SearchFormView, metadata: MetadataView) {
         this._entities = [
-            // createBackground(context),
+            createBackground(context),
             createCloud(context, 720, 70, -0.5),
             createCloud(context, 400, 100, -0.75),
             createCloud(context, 150, 150, -1),

@@ -6,6 +6,7 @@ import createCloud from './entities/cloud';
 import createBackground from './entities/background';
 import createPerson from './entities/person';
 import createRoad from './entities/road';
+import createDroplets from './entities/droplets';
 
 class App {
     private _metadataView: MetadataView;
@@ -21,7 +22,7 @@ class App {
             createPerson(context, '/images/person-1.png', 60, 450),
             createPerson(context, '/images/person-2.png', 110, 450),
             createPerson(context, '/images/person-3.png', 160, 450),
-            // createDropletGenerator(context, 'rgba(0, 0, 190, 0.6)', 5, 3),
+            createDroplets(context, 'rgba(0, 0, 190, 0.6)', 5, 3, 5),
         ];
 
         this._metadataView = metadata;

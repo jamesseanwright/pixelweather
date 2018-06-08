@@ -9,22 +9,23 @@ import Person from './outputObjects/Person';
 import Cloud from './outputObjects/Cloud';
 import Road from './outputObjects/Road';
 import DropletGenerator from './outputObjects/DropletGenerator';
+import Entity from './entities/Entity';
 
 class App {
     private _metadataView: MetadataView;
-    private _outputObjects: OutputObject[];
+    private _entities: Entity[];
 
     constructor(context: CanvasRenderingContext2D, searchForm: SearchFormView, metadata: MetadataView) {
-        this._outputObjects = [
-            new Background(context),
-            new Cloud(context, false, 720, 70, -0.5),
-            new Cloud(context, false, 400, 100, -0.75),
-            new Cloud(context, false, 150, 150, -1),
-            new Road(context, 0, 520),
-            new Person(context, '/images/person-1.png', 60, 450),
-            new Person(context, '/images/person-2.png', 110, 450),
-            new Person(context, '/images/person-3.png', 160, 450),
-            new DropletGenerator(context, 'rgba(0, 0, 190, 0.6)', 5, 3),
+        this._entities = [
+            createBackground(context),
+            createCloud(context, false, 720, 70, -0.5),
+            createCloud(context, false, 400, 100, -0.75),
+            createCloud(context, false, 150, 150, -1),
+            createRoad(context, 0, 520),
+            createPerson(context, '/images/person-1.png', 60, 450),
+            createPerson(context, '/images/person-2.png', 110, 450),
+            createPerson(context, '/images/person-3.png', 160, 450),
+            createDropletGenerator(context, 'rgba(0, 0, 190, 0.6)', 5, 3),
         ];
 
         this._metadataView = metadata;

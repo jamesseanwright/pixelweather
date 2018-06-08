@@ -4,6 +4,7 @@ import Result from './Result';
 import Entity from './entities/Entity';
 import createCloud from './entities/cloud';
 import createBackground from './entities/background';
+import createPerson from './entities/person';
 import createRoad from './entities/road';
 
 class App {
@@ -17,9 +18,9 @@ class App {
             createCloud(context, 400, 100, -0.75),
             createCloud(context, 150, 150, -1),
             createRoad(context, 0, 520),
-            // createPerson(context, '/images/person-1.png', 60, 450),
-            // createPerson(context, '/images/person-2.png', 110, 450),
-            // createPerson(context, '/images/person-3.png', 160, 450),
+            createPerson(context, '/images/person-1.png', 60, 450),
+            createPerson(context, '/images/person-2.png', 110, 450),
+            createPerson(context, '/images/person-3.png', 160, 450),
             // createDropletGenerator(context, 'rgba(0, 0, 190, 0.6)', 5, 3),
         ];
 

@@ -1,4 +1,4 @@
-import RectSprite, { CanvasFill } from './RectSprite';
+import RectRenderable, { CanvasFill } from './RectRenderable';
 import OutputObject from './OutputObject';
 import Droplet from './Droplet';
 

@@ -1,7 +1,7 @@
-import ImageSprite from './ImageSprite';
+import ImageRenderable from './ImageRenderable';
 import Result from '../Result';
 
-class Cloud extends ImageSprite {
+class Cloud extends ImageRenderable {
     public static getImagePath = (isGrey: boolean) => `/images/cloud${isGrey ? '-grey' : ''}.png`;
 
     constructor(context: CanvasRenderingContext2D, isGrey: boolean, x: number, y: number, xSpeed: number) {

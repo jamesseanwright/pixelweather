@@ -1,8 +1,7 @@
 import Moveable from './Moveable';
 import Loopable from './Loopable';
 
-// TODO: => ImageRenderable
-class ImageSprite extends Loopable {
+class ImageRenderable extends Loopable {
     // TODO: preload images once and cache
     public static createImage = async (src: string) => (
         new Promise<HTMLImageElement>((resolve, reject) => {
@@ -53,9 +52,9 @@ class ImageSprite extends Loopable {
 
     private loadImage = async (src: string) => {
         this._hasImageLoaded = false;
-        this._image = await ImageSprite.createImage(src);
+        this._image = await ImageRenderable.createImage(src);
         this._hasImageLoaded = true;
     }
 }
 
-export default ImageSprite;
+export default ImageRenderable;

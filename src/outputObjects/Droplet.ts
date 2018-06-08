@@ -1,6 +1,6 @@
-import RectSprite, { CanvasFill } from './RectSprite';
+import RectRenderable, { CanvasFill } from './RectRenderable';
 
-class Droplet extends RectSprite {
+class Droplet extends RectRenderable {
     constructor(
         context: CanvasRenderingContext2D,
         fill: CanvasFill,

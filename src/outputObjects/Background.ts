@@ -1,4 +1,4 @@
-import RectSprite, { CanvasFill } from './RectSprite';
+import RectRenderable, { CanvasFill } from './RectRenderable';
 import Result from '../Result';
 import { create } from 'domain';
 
@@ -33,9 +33,9 @@ const fills = new Map<FillPredicate, FillDelegate>([
     ],
 ]);
 
-class Background extends RectSprite {
+class Background extends RectRenderable {
     constructor(context: CanvasRenderingContext2D) {
-        super(context, createDefaultFill(context), 0, 0, context.canvas.width, context.canvas.height, 0, 0);
+        super(context, createDefaultFill(context), 0, 0, context.canvas.width, context.canvas.height, 0, 0, 0);
     }
 
     public setState(state: Result) {

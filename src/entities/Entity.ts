@@ -3,7 +3,7 @@ import Delegate from '../components/Delegate';
 class Entity {
     private _delegates: Delegate[];
 
-    constructor(delegates: Delegate[]) {
+    constructor(...delegates: Delegate[]) {
         this._delegates = delegates;
     }
 

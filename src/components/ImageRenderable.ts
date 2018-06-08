@@ -23,6 +23,7 @@ class ImageRenderable implements Delegate {
         src: string,
     ) {
         this._context = context;
+        this._positionable = positionable;
         this.loadImage(src);
     }
 

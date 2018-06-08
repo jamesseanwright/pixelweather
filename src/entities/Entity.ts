@@ -15,8 +15,8 @@ class Entity {
         }
     }
 
-    public set state(state: Result) {
-        this._onNewState(state);
+    public async setState(state: Result) {
+        await this._onNewState(state);
     }
 
     public set onNewState(callback: (state: Result) => void) {

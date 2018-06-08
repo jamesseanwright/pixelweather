@@ -35,11 +35,11 @@ class App {
         }
     }
 
-    private onResult = (result: Result) => {
+    private onResult = async (result: Result) => {
         this._metadataView.update(result);
 
         for (const entity of this._entities) {
-            entity.state = result;
+            await entity.setState(result);
         }
     }
 }

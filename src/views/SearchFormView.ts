@@ -24,7 +24,7 @@ class SearchFormView {
         const response = await fetch(`/api/weather/${value}`);
         const result = await response.json();
 
-        this._onResult(result);
+        await this._onResult(result);
     }
 }
 

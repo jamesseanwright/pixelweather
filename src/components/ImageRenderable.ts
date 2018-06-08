@@ -35,8 +35,8 @@ class ImageRenderable implements Delegate {
         }
     }
 
-    protected setImage = async (src: string) => {
-        this.loadImage(src);
+    public setImage = async (src: string) => {
+        await this.loadImage(src);
     }
 
     private loadImage = async (src: string) => {

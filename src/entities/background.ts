@@ -15,6 +15,7 @@ const createDefaultFill = (context: CanvasRenderingContext2D) => {
     return gradient;
 };
 
+// TODO: memoise fills
 const fills = new Map<FillPredicate, FillDelegate>([
     [
         ({ weather }) => !!weather.find(({ main }) => main === 'Rain'),
@@ -34,11 +35,26 @@ const fills = new Map<FillPredicate, FillDelegate>([
     ],
 ]);
 
+const getFill = (state: Result, context: CanvasRenderingContext2D) => {
+    for (const [predicate, delegate] of fills) {
+        if (predicate(state)) {
+            return delegate(context);
+        }
+    }
+
+    return 'black';
+};
+
 const createBackground = (context: CanvasRenderingContext2D) => {
     const positionable = new Positionable(0, 0, context.canvas.width, context.canvas.height);
     const rectRenderable = new RectRenderable(context, createDefaultFill(context), positionable);
+    const entity = new Entity(rectRenderable);
 
-    return new Entity(rectRenderable);
-}
+    entity.onNewState = state => {
+        rectRenderable.fill = getFill(state, context);
+    };
+
+    return entity;
+};
 
 export default createBackground;

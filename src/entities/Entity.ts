@@ -1,7 +1,9 @@
 import Delegate from '../components/Delegate';
+import Result from '../Result';
 
 class Entity {
     private _delegates: Delegate[];
+    private _onNewState = (state: Result) => undefined;
 
     constructor(...delegates: Delegate[]) {
         this._delegates = delegates;
@@ -11,6 +13,14 @@ class Entity {
         for (const delegate of this._delegates) {
             delegate.next();
         }
+    }
+
+    public set state(state: Result) {
+        this._onNewState(state);
+    }
+
+    public set onNewState(callback: (state: Result) => void) {
+        this._onNewState = callback;
     }
 }
 

@@ -25,6 +25,10 @@ class RectRenderable implements Delegate {
         this._context.fillStyle = this._fill;
         this._context.fillRect(x, y, width, height);
     }
+
+    public set fill(fill: CanvasFill) {
+        this._fill = fill;
+    }
 }
 
 export default RectRenderable;

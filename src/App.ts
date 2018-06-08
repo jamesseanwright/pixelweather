@@ -30,17 +30,17 @@ class App {
     }
 
     public next() {
-        for (const outputObject of this._entities) {
-            outputObject.next();
+        for (const entity of this._entities) {
+            entity.next();
         }
     }
 
     private onResult = (result: Result) => {
         this._metadataView.update(result);
 
-        // for (const outputObject of this._entities) {
-        //     outputObject.setState(result);
-        // }
+        for (const entity of this._entities) {
+            entity.state = result;
+        }
     }
 }
 

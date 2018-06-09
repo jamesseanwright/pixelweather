@@ -6,10 +6,11 @@ class Droplet extends RectRenderable {
         fill: CanvasFill,
         x: number,
         y: number,
-        size: number,
+        width: number,
+        height: number,
         ySpeed: number,
     ) {
-        super(context, fill, x, y, size, size, 0, ySpeed, context.canvas.height);
+        super(context, fill, x, y, width, height, 0, ySpeed, context.canvas.height);
     }
 }
 

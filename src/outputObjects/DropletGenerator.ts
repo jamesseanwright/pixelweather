@@ -8,19 +8,22 @@ class DropletGenerator extends OutputObject {
     private static createDroplets(
         context: CanvasRenderingContext2D,
         fill: CanvasFill,
-        dropletSize: number,
+        dropletWidth: number,
+        dropletHeight: number,
         ySpeed: number,
     ) {
         const droplets = [];
         const screenWidth = context.canvas.width;
         const screenHeight = context.canvas.height;
-        const totalSize = dropletSize + DROPLET_PADDING;
+        const totalDropletWidth = dropletWidth + DROPLET_PADDING;
+        const totalDropletHeight = dropletHeight + DROPLET_PADDING;
+        const totalSpace = (screenWidth + totalDropletWidth) * (screenHeight + totalDropletHeight);
 
-        for (let i = 0; i < (screenWidth * screenHeight) / totalSize; i++) {
-            const x = (i * totalSize) % screenWidth; // TODO: WORLD SPACE!!!
-            const y = Math.ceil((i * totalSize) / screenWidth) * totalSize;
+        for (let i = 0; i < totalSpace / (totalDropletWidth * totalDropletHeight); i++) {
+            const x = (i * totalDropletWidth) % screenWidth; // TODO: WORLD SPACE!!!
+            const y = Math.floor((i * totalDropletWidth) / screenWidth) * totalDropletHeight;
 
-            droplets[i] = new Droplet(context, fill, x, y, dropletSize, ySpeed);
+            droplets[i] = new Droplet(context, fill, x, y, dropletWidth, dropletHeight, ySpeed);
         }
 
         return droplets;
@@ -31,11 +34,12 @@ class DropletGenerator extends OutputObject {
     constructor(
         context: CanvasRenderingContext2D,
         fill: CanvasFill,
-        dropletSize: number,
+        dropletWidth: number,
+        dropletHeight: number,
         ySpeed: number,
     ) {
         super();
-        this._droplets = DropletGenerator.createDroplets(context, fill, dropletSize, ySpeed);
+        this._droplets = DropletGenerator.createDroplets(context, fill, dropletWidth, dropletHeight, ySpeed);
     }
 
     public next() {

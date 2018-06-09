@@ -16,12 +16,13 @@ const createDroplets = (
     const droplets = [];
     const screenWidth = context.canvas.width;
     const screenHeight = context.canvas.height;
-    const totalWidth = dropletWidth + dropletPadding;
-    const totalHeight = dropletHeight + dropletPadding;
+    const totalDropletWidth = dropletWidth + dropletPadding;
+    const totalDropletHeight = dropletHeight + dropletPadding;
+    const totalSpace = (screenWidth + totalDropletWidth) * (screenHeight + totalDropletHeight);
 
-    for (let i = 0; i < (screenWidth * screenHeight) / (totalWidth * totalHeight); i++) {
-        const x = (i * totalWidth) % screenWidth; // TODO: WORLD SPACE!!!
-        const y = Math.ceil((i * totalWidth) / screenWidth) * totalHeight;
+    for (let i = 0; i < totalSpace / (totalDropletWidth * totalDropletHeight); i++) {
+        const x = (i * totalDropletWidth) % screenWidth; // TODO: WORLD SPACE!!!
+        const y = Math.floor((i * totalDropletWidth) / screenWidth) * totalDropletHeight;
         const positionable = new Positionable(x, y, dropletWidth, dropletHeight);
         const moveable = new Moveable(positionable, 0, ySpeed);
         const loopable = new Loopable(positionable, moveable, 0, context.canvas.height);
@@ -31,7 +32,6 @@ const createDroplets = (
     }
 
     const entity = new AggregateEntity(droplets);
-    console.log('*******', droplets.length);
     entity.isActive = false;
 
     entity.onNewState = ({ weather }) => {

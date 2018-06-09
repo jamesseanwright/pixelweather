@@ -14,8 +14,8 @@ const app = new App(context, searchFormView, metadataView);
 context.imageSmoothingEnabled = false;
 
 const loop = () => {
-    app.next();
     requestAnimationFrame(loop);
+    app.next();
 };
 
-requestAnimationFrame(loop);
+loop();

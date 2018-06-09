@@ -22,7 +22,7 @@ class App {
             createPerson(context, '/images/person-1.png', 60, 450),
             createPerson(context, '/images/person-2.png', 110, 450),
             createPerson(context, '/images/person-3.png', 160, 450),
-            createDroplets(context, 'rgba(0, 0, 190, 0.6)', 5, 3, 5),
+            createDroplets(context, 'rgba(0, 0, 190, 0.6)', 5, 3, 15, 5),
         ];
 
         this._metadataView = metadata;

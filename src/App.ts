@@ -9,11 +9,24 @@ import createRoad from './entities/road';
 import createDroplets from './entities/droplets';
 import State from './State';
 
+const getClassNames = (baseClass: string, ...modifiers: (string | '')[]) => (
+    modifiers.reduce(
+        (className, modifier) => `${className} ${(modifier ? `${className}--${modifier}` : '')}`,
+        baseClass,
+    )
+);
+
 class App {
     private _metadataView: MetadataView;
     private _entities: Entity[];
+    private _element: Element;
 
-    constructor(context: CanvasRenderingContext2D, searchForm: SearchFormView, metadata: MetadataView) {
+    constructor(
+        context: CanvasRenderingContext2D,
+        element: Element,
+        searchForm: SearchFormView,
+        metadata: MetadataView,
+    ) {
         this._entities = [
             createBackground(context),
             createCloud(context, 720, 70, -0.5),
@@ -27,8 +40,9 @@ class App {
         ];
 
         this._metadataView = metadata;
+        this._element = element;
 
-        searchForm.onResult = this.onResult;
+        searchForm.onNewState = this.onNewState;
     }
 
     public next() {
@@ -37,14 +51,17 @@ class App {
         }
     }
 
-    private onResult = async (result: Result) => {
-        const state = new State(result);
-
+    private onNewState = async (state: State) => {
+        this.updateRootClassName(state);
         this._metadataView.update(state);
 
         for (const entity of this._entities) {
             await entity.setState(state);
         }
+    }
+
+    private updateRootClassName({ hasGreyClouds }: State) {
+        this._element.className = getClassNames('app', hasGreyClouds && 'light');
     }
 }
 

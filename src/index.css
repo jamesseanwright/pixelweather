@@ -19,17 +19,19 @@ input {
     position: relative;
 }
 
+.app--light {
+    color: white;
+}
+
 .app__ui {
     position: absolute;
 }
 
-.search-form__input,
-.search-form__submit {
+.search-form .search-form__input,
+.search-form .search-form__submit {
+    color: black;
     border: 1px solid black;
     padding: 10px;
     font-size: 1.2rem;
 }
 
-.metadata__summary--light {
-    color: white;
-}

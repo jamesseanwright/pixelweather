@@ -9,7 +9,7 @@ const canvas = document.body.querySelector<HTMLCanvasElement>('#output');
 const context = canvas.getContext('2d');
 const searchFormView = new SearchFormView(searchFormElement);
 const metadataView = new MetadataView(metaDataElement);
-const app = new App(context, searchFormView, metadataView);
+const app = new App(context, appElement, searchFormView, metadataView);
 
 context.imageSmoothingEnabled = false;
 

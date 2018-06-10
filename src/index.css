@@ -25,6 +25,7 @@ input {
 
 .app__ui {
     position: absolute;
+    margin: 5px 15px;
 }
 
 .search-form .search-form__input,
@@ -35,3 +36,10 @@ input {
     font-size: 1.2rem;
 }
 
+.metadata__summary {
+    padding-left: 20px;
+}
+
+.metadata__summary-item {
+    margin-bottom: 10px;
+}

@@ -7,7 +7,7 @@ export type CanvasFill = string | CanvasGradient | CanvasPattern;
 class RectRenderable implements Delegate {
     private _positionable: Positionable;
     private _context: CanvasRenderingContext2D;
-    private _fill: string | CanvasGradient | CanvasPattern;
+    private _fill: CanvasFill;
 
     constructor(
         context: CanvasRenderingContext2D,

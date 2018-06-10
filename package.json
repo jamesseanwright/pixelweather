@@ -9,7 +9,7 @@
     "build-server": "tsc -p tsconfig.server.json",
     "copy-static-files": "cp -r src/{images,fonts} dist/client && cp src/index.{html,css} dist/client",
     "dev": "npm run build && npm start",
-    "test": "tslint && jest"
+    "test": "tslint -c tslint.json 'src/**/*.ts' && jest"
   },
   "repository": {
     "type": "git",

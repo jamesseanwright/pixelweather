@@ -1,4 +1,12 @@
 import Result from '../Result';
+import State from '../State';
+
+const getClassNames = (baseClass: string, ...modifiers: (string | '')[]) => (
+    modifiers.reduce(
+        (className, modifier) => `${className} ${(modifier ? `${className}--${modifier}` : '')}`,
+        baseClass,
+    )
+);
 
 class MetadataView {
     private _element: Element;
@@ -7,13 +15,12 @@ class MetadataView {
         this._element = element;
     }
 
-    public update(state: Result) {
+    public update({ temp, weatherSummary, hasGreyClouds }: State) {
         this._element.innerHTML = `
-            <ul class="metadata__summary">
-                ${state.weather.map(w => `<li>${w.main}</li>`)}
+            <ul class="${getClassNames('metadata__summary', hasGreyClouds && 'light')}">
+                <li>${temp} °C</li>
+                ${weatherSummary.map(w => `<li>${w}</li>`)}
             </ul>
-
-            <p>${state.main.temp} °C</p>
         `;
     }
 }

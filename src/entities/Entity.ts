@@ -1,9 +1,10 @@
 import Delegate from '../components/Delegate';
 import Result from '../Result';
+import State from '../State';
 
 class Entity {
     private _delegates: Delegate[];
-    private _onNewState = (state: Result) => undefined;
+    private _onNewState = (state: State) => undefined;
     protected _isActive = true;
 
     constructor(...delegates: Delegate[]) {
@@ -20,11 +21,11 @@ class Entity {
         }
     }
 
-    public async setState(state: Result) {
+    public async setState(state: State) {
         await this._onNewState(state);
     }
 
-    public set onNewState(callback: (state: Result) => void) {
+    public set onNewState(callback: (state: State) => void) {
         this._onNewState = callback;
     }
 

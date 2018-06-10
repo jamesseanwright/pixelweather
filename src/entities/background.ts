@@ -2,8 +2,9 @@ import Result from '../Result';
 import RectRenderable, { CanvasFill } from '../components/RectRenderable';
 import Positionable from '../components/Positionable';
 import Entity from './Entity';
+import State from '../State';
 
-export type FillPredicate = (state: Result) => boolean;
+export type FillPredicate = (state: State) => boolean;
 export type FillDelegate = (context: CanvasRenderingContext2D) => CanvasFill;
 
 const createDefaultFill = (context: CanvasRenderingContext2D) => {
@@ -18,7 +19,7 @@ const createDefaultFill = (context: CanvasRenderingContext2D) => {
 // TODO: memoise fills
 const fills = new Map<FillPredicate, FillDelegate>([
     [
-        ({ weather }) => !!weather.find(({ main }) => main === 'Rain'),
+        ({ isRaining }) => isRaining,
         context => {
             const gradient = context.createLinearGradient(0, 0, 0, context.canvas.width);
 
@@ -35,7 +36,7 @@ const fills = new Map<FillPredicate, FillDelegate>([
     ],
 ]);
 
-const getFill = (state: Result, context: CanvasRenderingContext2D) => {
+const getFill = (state: State, context: CanvasRenderingContext2D) => {
     for (const [predicate, delegate] of fills) {
         if (predicate(state)) {
             return delegate(context);

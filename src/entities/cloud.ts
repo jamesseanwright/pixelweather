@@ -11,9 +11,8 @@ const createCloud = (context: CanvasRenderingContext2D, x: number, y: number, xS
     const imageRenderable = new ImageRenderable(context, positionable, '/images/cloud.png');
     const entity = new Entity(moveable, loopable, imageRenderable);
 
-    entity.onNewState = async ({ weather }) => {
-        const isGrey = weather.some(({ main }) => main === 'Rain' || main === 'Thunder');
-        await imageRenderable.setImage(`/images/cloud${isGrey ? '-grey' : ''}.png`);
+    entity.onNewState = async ({ hasGreyClouds }) => {
+        await imageRenderable.setImage(`/images/cloud${hasGreyClouds ? '-grey' : ''}.png`);
     };
 
     return entity;

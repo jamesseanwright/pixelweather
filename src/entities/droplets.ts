@@ -34,8 +34,8 @@ const createDroplets = (
     const entity = new AggregateEntity(droplets);
     entity.isActive = false;
 
-    entity.onNewState = ({ weather }) => {
-        entity.isActive = weather.some(({ main }) => main === 'Rain');
+    entity.onNewState = ({ isRaining }) => {
+        entity.isActive = isRaining;
     };
 
     return entity;

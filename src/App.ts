@@ -7,6 +7,7 @@ import createBackground from './entities/background';
 import createPerson from './entities/person';
 import createRoad from './entities/road';
 import createDroplets from './entities/droplets';
+import State from './State';
 
 class App {
     private _metadataView: MetadataView;
@@ -37,10 +38,12 @@ class App {
     }
 
     private onResult = async (result: Result) => {
-        this._metadataView.update(result);
+        const state = new State(result);
+
+        this._metadataView.update(state);
 
         for (const entity of this._entities) {
-            await entity.setState(result);
+            await entity.setState(state);
         }
     }
 }

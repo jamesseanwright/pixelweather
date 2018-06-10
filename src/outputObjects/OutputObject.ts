@@ -8,7 +8,7 @@ abstract class OutputObject {
             humidity: 0,
         },
         visibility: 10000,
-    }
+    };
 
     public abstract next(): void;
 

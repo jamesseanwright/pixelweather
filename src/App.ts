@@ -1,6 +1,5 @@
 import SearchFormView from './views/SearchFormView';
 import MetadataView from './views/MetadataView';
-import Result from './Result';
 import Entity from './entities/Entity';
 import createCloud from './entities/cloud';
 import createBackground from './entities/background';

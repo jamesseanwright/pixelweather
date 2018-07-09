@@ -8,7 +8,7 @@ class MetadataView {
         this._element = element;
     }
 
-    public update({ temp, weatherSummary, hasGreyClouds }: State) {
+    public update({ temp, weatherSummary }: State) {
         this._element.innerHTML = `
             <ul class="metadata__summary">
                 <li class="metadata__summary-item">${temp} °C</li>
